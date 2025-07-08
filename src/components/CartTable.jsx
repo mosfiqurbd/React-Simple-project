@@ -1,34 +1,47 @@
-const CartTable = ({ cartItems, onRemove }) => {
+import { useCart } from "../context/CartContext";
+
+const CartTable = () => {
+  const { cartItems, removeFromCart, totalPrice } = useCart();
+
+  if (cartItems.length === 0) {
     return (
-      <table className="min-w-full bg-white shadow rounded">
-        <thead className="bg-gray-100">
+      <div className="cart-container">
+        <h2>Your cart is empty.</h2>
+      </div>
+    );
+  }
+
+  return (
+    <div className="cart-container">
+      <table className="cart-table">
+        <thead>
           <tr>
-            <th className="py-2 px-4 text-left">Product</th>
-            <th className="py-2 px-4 text-left">Price</th>
-            <th className="py-2 px-4 text-left">Quantity</th>
-            <th className="py-2 px-4">Remove</th>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
           {cartItems.map((item) => (
-            <tr key={item.id} className="border-t">
-              <td className="py-2 px-4">{item.title}</td>
-              <td className="py-2 px-4">${item.price}</td>
-              <td className="py-2 px-4">{item.quantity}</td>
-              <td className="py-2 px-4 text-center">
-                <button
-                  onClick={() => onRemove(item.id)}
-                  className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
-                >
-                  Remove
-                </button>
+            <tr key={item.id}>
+              <td>
+                <img src={item.image} alt={item.title} className="cart-image" />
+              </td>
+              <td>{item.title}</td>
+              <td>${item.price}</td>
+              <td>{item.quantity}</td>
+              <td>
+                <button onClick={() => removeFromCart(item.id)}>Remove 1</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-    );
-  };
-  
-  export default CartTable;
-  
+      <h3 className="cart-total">Total: ${totalPrice.toFixed(2)}</h3>
+    </div>
+  );
+};
+
+export default CartTable;

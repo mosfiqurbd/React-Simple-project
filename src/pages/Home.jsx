@@ -1,44 +1,53 @@
-import React, { useState } from 'react';
-import { products } from '../data/products';
-import ProductCard from '../components/ProductCard';
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useCart } from "../context/CartContext";
+import { products } from "../data/products";
 
 const Home = () => {
-  const [search, setSearch] = useState('');
-  const [sortOrder, setSortOrder] = useState('');
+  const { addToCart } = useCart();
+  const [search, setSearch] = useState("");
+  const [sort, setSort] = useState("");
 
   const filteredProducts = products
-    .filter(p => 
-      p.title.toLowerCase().includes(search.toLowerCase()) ||
-      p.description.toLowerCase().includes(search.toLowerCase())
+    .filter(
+      (p) =>
+        p.title.toLowerCase().includes(search.toLowerCase()) ||
+        p.description.toLowerCase().includes(search.toLowerCase())
     )
     .sort((a, b) => {
-      if (sortOrder === 'low') return a.price - b.price;
-      if (sortOrder === 'high') return b.price - a.price;
+      if (sort === "low-high") return a.price - b.price;
+      if (sort === "high-low") return b.price - a.price;
       return 0;
     });
 
   return (
-    <div className="p-4">
-      <div className="flex flex-col md:flex-row md:items-center md:space-x-4">
-        <input 
-          type="text" 
+    <div className="container">
+      <div className="search-sort">
+        <input
+          type="text"
           placeholder="Search products..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="border p-2 mb-2 md:mb-0"
         />
-        <select 
-          onChange={(e) => setSortOrder(e.target.value)}
-          className="border p-2"
-        >
-          <option value="">Sort By</option>
-          <option value="low">Low =&gt; High</option>
-          <option value="high">High =&gt; Low</option>
+        <select value={sort} onChange={(e) => setSort(e.target.value)}>
+          <option value="">Sort</option>
+          <option value="low-high">Low → High</option>
+          <option value="high-low">High → Low</option>
         </select>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
-        {filteredProducts.map(product => (
-          <ProductCard key={product.id} product={product} />
+
+      <div className="product-grid">
+        {filteredProducts.map((product) => (
+          <div key={product.id} className="product-card">
+            <img src={product.image} alt={product.title} />
+            <h2>{product.title}</h2>
+            <p>{product.description}</p>
+            <p className="price">${product.price}</p>
+            <button onClick={() => addToCart(product)}>Add to Cart</button>
+            <Link to={`/product/${product.id}`} className="view-btn">
+              View
+            </Link>
+          </div>
         ))}
       </div>
     </div>
