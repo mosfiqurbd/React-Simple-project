@@ -5,7 +5,7 @@ export const products = [
     description: "Apple iPhone 13 Pro with A15 Bionic chip, 128GB storage.",
     price: 999,
     category: 'Mobile',
-    image: "/public/images/sophia-stark-hOqqZAftlSo-unsplash.jpg"
+    image: "/images/product1.jpg",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const products = [
     description: "Samsung flagship phone with dynamic AMOLED display",
     price: 200,
     category: 'Mobile',
-    image: "/public/images/sums.jpg"
+    image: "/images/product2.jpg",
   },
 
   {
@@ -22,7 +22,7 @@ export const products = [
     description: "Description for product C",
     price: 150,
     category: 'Mobile',
-    image: "/public/images/Mi.jpg"
+    image: "/images/product3.jpg",
   },
 
   {
@@ -31,7 +31,7 @@ export const products = [
     description: ' Rainbow 128GB 12GB RAM Gsm Unlocked Phone Qualcomm SM6375 Snapdragon 695 5G 64MP.',
     price: 999,
     category: 'Mobile',
-    image: "/public/images/oppo.jpg"
+    image: "/images/product4.jpg",
   },
   {
     id: 5,
@@ -39,7 +39,7 @@ export const products = [
     description: 'Apple MacBook Air with M1 chip for faster performance.',
     price: 850,
     category: 'Laptop',
-    image: '/public/images/Mack.jpg'
+    image: '/images/product5.jpg',
   },
   {
     id: 6,
@@ -47,7 +47,7 @@ export const products = [
     description: 'High-performance laptop with Intel Core i7 11th Gen',
     price: 999,
     category: 'Laptop',
-    image: '/public/images/Hp e.jpg'
+    image: '/images/product6.jpg',
   },
   {
     id: 7,
@@ -55,7 +55,7 @@ export const products = [
     description: 'Ultra portable laptop with 11th Gen Intel processor.',
     price: 1200,
     category: 'Laptop',
-    image: '/public/images/DEll.jpg'
+    image: '/images/product7.jpg',
   },
   {
     id: 8,
@@ -63,7 +63,7 @@ export const products = [
     description: 'Industry leading noise-canceling wireless headphones.',
     price: 350,
     category: 'Headphone',
-    image: '/public/images/varad-murti-GxWwjOjJ5Ss-unsplash.jpg'
+    image: '/images/product8.jpg',
   },
   {
     id: 9,
@@ -71,7 +71,7 @@ export const products = [
     description: 'Portable waterproof Bluetooth speaker with powerful sound.',
     price: 100,
     category: 'Speaker',
-    image: '/public/images/sayan-majhi-E7EdaTTM7w8-unsplash.jpg'
+    image: '/images/product9.jpg',
   },
   
   {
@@ -80,7 +80,7 @@ export const products = [
     description: 'Comfortable and stylish Nike running shoes.',
     price: 120,
     category: 'Shoe',
-    image: '/public/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg'
+    image: '/images/product11.jpg',
   },
   {
     
@@ -89,7 +89,7 @@ export const products = [
     description: 'High-performance running shoe with boost technology.',
     price: 140,
     category: 'Shoe',
-    image: '/public/images/muhammad-haikal-sjukri-A3Sf_FZDqRM-unsplash.jpg'
+    image: '/images/product10.jpg',
   },
   {
   id: 12,
@@ -97,7 +97,7 @@ export const products = [
   description: 'High-performance running shoe with boost technology.',
   price: 140,
   category: 'Shoe',
-  image: '/public/images/muhammad-haikal-sjukri-A3Sf_FZDqRM-unsplash.jpg'
+  image: '/images/product11.jpg',
 },
 ];
 
